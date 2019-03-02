@@ -1,0 +1,9 @@
+[package]
+name = "banngo"
+version = "0.1.0"
+authors = ["Michael Gawlik <michaelgawlik1983@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+rand = "0.6.5"
+colored = "1.7.0"
