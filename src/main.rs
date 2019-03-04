@@ -1,6 +1,7 @@
 use rand::{seq::SliceRandom, thread_rng, Rng};
 use std::io;
 use colored::Colorize;
+use wana_kana::to_hiragana::*;
 
 struct Category {
     pub name: &'static str,
@@ -37,13 +38,13 @@ fn main() {
 
         buffer.clear();
         io::stdin().read_line(&mut buffer).unwrap();
-        let buffer = buffer.trim_end();
+        let actual = to_hiragana(buffer.trim_end());
 
-        let counter = category.counters[number];
-        if counter == buffer{
+        let expected = category.counters[number];
+        if expected == actual{
             println!("{}", "正しい！".green());
         } else {
-            println!("{} {}", "違い!：".red(), counter);
+            println!("{} {}", "違い!：".red(), expected);
         }
     }
 }
